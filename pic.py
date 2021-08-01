@@ -1,23 +1,11 @@
 import cv2 as cv
 from PIL import Image, ImageDraw, ImageFont
-import numpy as np
+import cv2
+img = cv2.imread('D:\\OneDrive\\Pictures\\headimage\\20200504_130926785_iOS.jpg')
+font = cv2.FONT_HERSHEY_SIMPLEX
 
-# path = "D:\\OneDrive\Pictures\\acg\\MJK_17_T622_006.png"
-# img = cv.imread(path)
-# cv.imshow('image', img)
-# print(type(img))
-# cv.waitKey(0)
+imgzi = cv2.putText(img, '000', (50, 300), font, 1.2, (0, 255, 255), 2)
 
-font_path = "C:\\Windows\\Fonts\\times.ttf"
-font_size = 12
-
-height, width = 144,256
-draw_font = ImageFont.truetype(font_path, font_size)
-draw_img = Image.new("L", (width*font_size, height*font_size), 256)
-draw = ImageDraw.Draw(draw_img)
-start = 0
-for i in range(height):
-    for j in range(width):
-        draw.text((j*font_size, i*font_size), '#', font=draw_font)
-arr = np.array(draw_img)
-print(type(arr))
+cv2.imshow('',imgzi)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
